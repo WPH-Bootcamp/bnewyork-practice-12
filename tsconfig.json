@@ -1,0 +1,51 @@
+{
+  // =============================================================
+  // TSCONFIG.JSON - "Buku Peraturan" untuk TypeScript
+  // =============================================================
+  // File ini ibarat "peraturan rumah" yang ngasih tau TypeScript
+  // bagaimana cara dia harus bekerja di project kita.
+  //
+  // Cara bikin file ini otomatis: jalankan `npx tsc --init`
+  // Nanti akan muncul file tsconfig.json dengan BANYAK option.
+  // Di bawah ini cuma yang PENTING-PENTING aja.
+  // =============================================================
+
+  "compilerOptions": {
+    // TARGET: "Mau compile ke JavaScript versi berapa?"
+    // - "es2016" artinya output JS-nya pakai standar ES2016
+    // - Semakin baru target, semakin modern fitur JS yang bisa dipakai
+    // Analogi: Kayak milih "mau ekspor film dalam format DVD atau Blu-ray?"
+    "target": "es2016",
+
+    // MODULE: "Cara ngatur import/export gimana?"
+    // - "commonjs" = pakai require() / module.exports (standar Node.js)
+    // - "esnext" = pakai import/export (standar modern)
+    // Analogi: Kayak milih "mau kirim paket pakai JNE atau GoSend?"
+    "module": "commonjs",
+
+    // STRICT: "Mau TypeScript galak atau santai?"
+    // - true = TypeScript bakal cerewet, SEMUA harus jelas tipe datanya
+    // - false = TypeScript lebih santai, tapi lebih gampang ada bug
+    // Analogi: Kayak guru yang strict vs guru yang santai.
+    //          Guru strict bikin capek, tapi hasilnya lebih bagus!
+    "strict": true,
+
+    // OUTDIR: "Hasil compile JS-nya taruh di mana?"
+    "outDir": "./dist",
+
+    // LIB: Library bawaan apa aja yang boleh dipakai
+    "lib": ["es2017", "dom"],
+
+    // ESMODULEINTEROP: Biar import dari library JS biasa tetap lancar
+    "esModuleInterop": true,
+
+    // SKIPLIB CHECK: Skip pengecekan file library biar compile lebih cepat
+    "skipLibCheck": true,
+
+    // FORCECONSISTENTCASINGINFILENAMES: Nama file harus konsisten huruf besar/kecilnya
+    "forceConsistentCasingInFileNames": true
+  },
+
+  // INCLUDE: "File mana aja yang mau di-compile?"
+  "include": ["./**/*.ts"]
+}
