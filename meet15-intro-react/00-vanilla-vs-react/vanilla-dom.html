@@ -1,0 +1,66 @@
+<!-- Vanilla DOM - me-render secara manual menggunakan createElement -->
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vanilla DOM</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #0f172a;
+        color: #fff;
+        padding: 40px;
+      }
+      .card {
+        padding: 16px;
+        background: #1e293b;
+        border-radius: 8px;
+        margin: 8px 0;
+      }
+      h3 {
+        color: #60a5fa;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🛒 Daftar Produk — Vanilla DOM</h1>
+    <p>Kode JavaScript di bawah ini yang bertugas me-render card-nya.</p>
+
+    <div id="root"></div>
+
+    <script>
+      const products = [
+        { name: "iPhone 15", price: 15000000 },
+        { name: "Macbook Air", price: 20000000 },
+        { name: "AirPods Pro", price: 4000000 },
+      ];
+
+      // Render manual: createElement -> set property -> appendChild
+      // Jika terdapat 20 field per card, kode dapat mencapai 200 baris
+      const root = document.getElementById("root");
+
+      products.forEach(function (product) {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const title = document.createElement("h3");
+        title.textContent = product.name;
+
+        const price = document.createElement("p");
+        price.textContent = "Rp " + product.price.toLocaleString("id-ID");
+
+        card.appendChild(title);
+        card.appendChild(price);
+        root.appendChild(card);
+      });
+
+      // Versi React hanya perlu:
+      //   {products.map(p => (
+      //     <div className="card">
+      //       <h3>{p.name}</h3>
+      //       <p>Rp {p.price.toLocaleString()}</p>
+      //     </div>
+      //   ))}
+    </script>
+  </body>
+</html>
